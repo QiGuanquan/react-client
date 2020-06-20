@@ -6,7 +6,12 @@ import './login.less';
   登陆的路由组件
 */
 export default class Login extends Component {
+  
     render() {
+      const onFinish = values => {
+        console.log('Received values of form: ', values);
+      };
+
       return (
         <div className="login">
           <div className= "wrapper">
@@ -20,7 +25,7 @@ export default class Login extends Component {
                 name="normal_login"
                 className="login-form"
                 initialValues={{ remember: true }}
-                // onFinish={onFinish}
+                onFinish={onFinish}
               >
                 <Form.Item
                   name="username"
@@ -59,3 +64,6 @@ export default class Login extends Component {
       )
     }
 }
+
+// const WrapLogin = Form.create()(Login)
+// export default WrapLogin
