@@ -1,0 +1,85 @@
+.login {
+  height: 100%;
+  .wrapper{
+    width: 100%;
+    min-height: 100%;
+    background-image: url('../../assets/images/background.svg');
+    background-size: 100% 100%;
+    position: relative;
+    padding: 110px 0 144px;
+
+    .login-content {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      margin: 100px auto;
+      text-align: center;
+      .content-header {
+        height: 44px;
+        line-height: 44px;
+        display: inline-flex;
+        margin-bottom: 40px;
+        .logo {
+          width: 44px;
+          height: 44px;
+          background-image: url('../../assets/images/logo.svg');
+          margin-right: 20px;
+        }
+
+        h1 {
+          font-size: 33px;
+          color: rgba(0,0,0,.85);
+          font-family: Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+          font-weight: 600;
+          position: relative;
+          top: 2px;
+        }
+      }
+
+      .content-form{
+        width: 100%;
+        padding: 8px;
+        #components-form-demo-normal-login .login-form {
+          max-width: 300px;
+        }
+        #components-form-demo-normal-login .login-form-forgot {
+          float: right;
+        }
+        #components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
+          float: left;
+        }
+        #components-form-demo-normal-login {
+          width: 100%;
+        }
+        .login-form-button {
+          width: 100%;
+          height: 40px;
+        }
+      }
+
+    }
+
+    .login-footer {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      padding: 0 16px;
+      margin: 48px 0 24px;
+      text-align: center;
+
+      .links {
+        margin-bottom: 8px;
+        font-size: 14px;
+
+        .link {
+        margin-right: 40px; 
+        }
+      }
+
+      .copyright {
+        color: rgba(0, 0, 0, .45);
+        font-size: 14px;
+      }
+    }
+  }
+}
