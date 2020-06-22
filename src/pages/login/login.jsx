@@ -1,20 +1,25 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './login.less';
 import { login } from '../../api'
+import { message } from 'antd'
 /*
   登陆的路由组件
 */
 export default class Login extends Component {
   
     render() {
-      const onFinish = values => {
-        console.log('Received values of form: ', values);
+      const onFinish = async values => {
         const {username, password} = values
-        login(username, password).then(res => {
-          console.log('res', res)
-        })
+        const response = await login(username, password)
+        const result = response.data
+        if(result.status === 200) {
+          message.success('登陆成功')
+          this.props.history.replace('/Admin')
+        } else {
+          message.error('登录失败')
+        }
       };
 
       return (
