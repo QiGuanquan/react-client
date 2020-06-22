@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './login.less';
+import { login } from '../../api'
 /*
   登陆的路由组件
 */
@@ -10,6 +11,10 @@ export default class Login extends Component {
     render() {
       const onFinish = values => {
         console.log('Received values of form: ', values);
+        const {username, password} = values
+        login(username, password).then(res => {
+          console.log('res', res)
+        })
       };
 
       return (
