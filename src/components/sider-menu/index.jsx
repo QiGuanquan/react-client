@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import './index.less'
 import { Avatar, Menu } from 'antd'
 import { UserOutlined, 
@@ -15,44 +15,67 @@ import { UserOutlined,
 
 // const { SubMenu } = Menu
 
-export default class SiderMenu extends Component {
+class SiderMenu extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      current: '/',
+      top: 0
+    }
+  }
+
+  componentDidMount() {
+    if(this.props.location.pathname) {
+        this.setState({
+            current: this.props.location.pathname
+        })
+    }
+  }
+
+  handleClick = e => {
+    this.setState({
+      current: e.key,
+    })
+  }
+
   render(){
     return(
       <div>
-        <div to='/' className="sider-menu">
-          <Link className="sider-menu-header">
+        <div className="sider-menu">
+          <Link to='/workplace' className="sider-menu-header">
             <Avatar size={ 50 } icon={ <UserOutlined /> }></Avatar>
             <h1>admin</h1>
           </Link>
         </div>
         <Menu
-          defaultSelectedKeys={['1']}
-          // defaultOpenKeys={['sub1']}
+          defaultSelectedKeys={[this.state.current]}
           mode="inline"
           theme="dark"
-          // inlineCollapsed={this.state.collapsed}
+          onClick={this.handleClick}
+          selectedKeys={[this.state.current]}
         >
-          <Menu.Item key="1" icon={<PieChartOutlined />}>
+          <Menu.Item key="/workplace" icon={<PieChartOutlined />}>
             <Link to='/workplace'>
               工作台
             </Link>
           </Menu.Item>
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
+          <Menu.Item key="/talk" icon={<DesktopOutlined />}>
             <Link to='/talk'>
               消息
             </Link>
           </Menu.Item>
-          <Menu.Item key="3" icon={<ContainerOutlined />}>
+          <Menu.Item key="/memberlist" icon={<ContainerOutlined />}>
             <Link to='/memberlist'>
               通讯录
             </Link>
           </Menu.Item>
-          <Menu.Item key="4" icon={<MailOutlined />}>
+          <Menu.Item key="/task" icon={<MailOutlined />}>
             <Link to='/task'>
               任务
             </Link>
           </Menu.Item>
-          <Menu.Item key="5" icon={<AppstoreOutlined />}>
+          <Menu.Item key="/search" icon={<AppstoreOutlined />}>
             <Link to='/search'>
               搜索
             </Link>
@@ -68,3 +91,5 @@ export default class SiderMenu extends Component {
     )
   }
 }
+
+export default withRouter(SiderMenu)
