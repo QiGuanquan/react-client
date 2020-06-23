@@ -1,16 +1,38 @@
 .header {
-  height: 80px;
+  height: 32px;
   .header-bar {
     display: flex;
     float: right;
-    line-height: 80px;
-    margin-right: 20px;
-    h1 {
-      margin-right: 8px;
+
+    .button {
+      width: 40px;
+      height: 24px;
+      outline: none;
+      background: none;
+      border: none;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px 10px;
     }
 
-    a {
+    .mini-btn {
+      background-image: url(../../assets/button/miniBtn.png);
+    }
 
+    .max-btn {
+      background-image: url(../../assets/button/maxBtn.png);
+    }
+
+    .close-btn {
+      background-image: url(../../assets/button/closeBtn.png);
+    }
+
+    .close-btn:hover {
+      background-color: #f54a45;
+    }
+
+    .mini-btn:hover, .max-btn:hover {
+      background-color: #dee0e3;
     }
   }
 }
