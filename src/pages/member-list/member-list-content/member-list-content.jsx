@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './member-list-content.less'
 import { Layout } from 'antd'
 import MemberListContentSider from './member-list-content-sider/member-list-content-sider'
+import GroupList from './group-list/group-list'
 
 const { Sider, Content } = Layout
 /**
@@ -16,7 +17,9 @@ export default class MemberListContent extends Component {
             <MemberListContentSider/>
           </Sider>
           <Layout>
-            <Content>Content</Content>
+            <Content>
+              <GroupList />
+            </Content>
           </Layout>
         </Layout>
       </div>
