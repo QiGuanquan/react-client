@@ -98,31 +98,6 @@ class SiderMenu extends Component {
           onClick={this.handleClick}
           selectedKeys={[this.state.current]}
         >
-          {/* <Menu.Item key="/workplace" icon={<DesktopOutlined />}>
-            <Link to='/workplace'>
-              工作台
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/talk" icon={<MessageOutlined />}>
-            <Link to='/talk'>
-              消息
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/memberlist" icon={<TeamOutlined />}>
-            <Link to='/memberlist'>
-              通讯录
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/task" icon={<ContainerOutlined />}>
-            <Link to='/task'>
-              任务
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/search" icon={<SearchOutlined />}>
-            <Link to='/search'>
-              搜索
-            </Link>
-          </Menu.Item> */}
           {this.getMenuNodes(menuList)}
         </Menu>
       </div>
