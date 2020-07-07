@@ -8,6 +8,7 @@ import Search from '../search/search'
 import Talk from '../talk/talk'
 import Task from '../task/task'
 import WorkPlace from '../work-place/work-place'
+import memoryUtils from '../../utils/memoryUtils'
 
 const { Footer, Sider, Content } = Layout
 /*
@@ -15,6 +16,12 @@ const { Footer, Sider, Content } = Layout
 */
 export default class Admin extends Component {
     render() {
+      const user = memoryUtils.user
+      // 如果内存中没有存储user ==》 当前没有登录
+      if(!user || !user.username) {
+        // 自动跳转到登录（在render（）中）
+        return <Redirect to='/login'/>
+      }
       return (
         <Layout style={{ height: '100%' }}>
           <Sider>

@@ -5,6 +5,6 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import reducer from './reducer'
-import { composeWithDevTools } from 'redex-devtools-extension' 
+import { composeWithDevTools } from 'redux-devtools-extension'
 // 向外默认暴漏store
 export default createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
