@@ -1,5 +1,4 @@
 import ajax from './ajax'
-
 // const BASEUrl = 'http://10.11.24.129:8080'
 const BASE = ''
 // 登录

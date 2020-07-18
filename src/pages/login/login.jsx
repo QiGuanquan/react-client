@@ -25,12 +25,14 @@ export default class Login extends Component {
         const {username, password} = values
         const response = await login(username, password)
         const result = response.data
+        console.log('result', result)
         if(result.status === 200) {
           message.success(values.username+'登陆成功')
-          console.log(values)
           const user = values
           memoryUtils.user = user //保存在内存中
           storageUtils.saveUser(user) //保存到本地中
+          memoryUtils.token = result.token
+          storageUtils.saveToken(result.result.token)
           this.props.history.replace('/')
         } else {
           message.error('登录失败')

@@ -10,7 +10,8 @@ export default class MemberListContentSider extends Component {
     super(props)
     this.state = {
       selectedJoin: true,
-      selectedCreated: false
+      selectedCreated: false,
+      type: 1
     }
   }
 
@@ -19,6 +20,7 @@ export default class MemberListContentSider extends Component {
       selectedJoin: true,
       selectedCreated: false
     })
+    this.setState({type: 1}, () => this.props.callback(this.state.type))
   }
 
   clickCreated = e => {
@@ -26,6 +28,7 @@ export default class MemberListContentSider extends Component {
       selectedJoin: false,
       selectedCreated: true
     })
+    this.setState({type: 2}, () => this.props.callback(this.state.type))
   }
 
   render(){

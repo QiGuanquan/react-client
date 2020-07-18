@@ -8,12 +8,17 @@
 */
 import axios from 'axios'
 import {message} from 'antd'
+
+import storageUtils from '../utils/storageUtils'
+
+const token = storageUtils.getToken()
 export default function ajax(url, data={}, type='GET' ) {
 
   return new Promise((resolve, reject) => {
     let promise
     if(type === 'GET') { // 发送GET请求
       promise = axios.get(url, { // 配置对象
+        headers: {'token': token},
         params: data // 指定请求参数
       })
     } else { // 发送POST请求
